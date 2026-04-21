@@ -18,7 +18,7 @@ def clean_integrated_data(df):
 
     # 4. Хоёр дахь шатны давхардал арилгах (Гарчгаар)
     # Заримдаа өөр сайтууд яг ижил гарчиг ашигладаг
-
+    
     df = df.drop_duplicates(subset=['title'], keep='first')
 
     return df
