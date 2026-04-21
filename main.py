@@ -3,7 +3,7 @@ from src.scrapers.ikon import get_ikon_news
 import pandas as pd
 from src.utils.cleaning import clean_integrated_data
 from src.database import save_to_db
-
+from src.database import export_news_by_source
 def run_pipeline():
     print("Мэдээ цуглуулж эхэллээ...")
 
@@ -16,7 +16,6 @@ def run_pipeline():
     print("Extracting...")
 
     # 2. TRANSFORM
-
     df_raw = pd.DataFrame(all_news)
     df_clean = clean_integrated_data(df_raw)
     print("Transforming...")
@@ -26,6 +25,9 @@ def run_pipeline():
     save_to_db(df_clean)
     print("Loading...")
 
+    # 4. EXPORT (Салгаж хадгалах хэсэг)
+    export_news_by_source()
+    
     print(f"\n--- Тайлан ---")
     print(f"Нийт цуглуулсан: raw - {len(df_raw)}")
     print(f"Нийт цуглуулсан: clean - {len(df_clean)}")
