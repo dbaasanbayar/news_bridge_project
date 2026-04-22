@@ -1,1 +1,26 @@
+# Environment variables
 .env
+
+# Data (маш чухал)
+data/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+.venv/
+
+# OS files
+.DS_Store
+
+# Logs
+*.log
+
+# Jupyter Notebook checkpoints (хэрвээ ашиглавал)
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
