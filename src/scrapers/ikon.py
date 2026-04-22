@@ -1,7 +1,15 @@
 import requests
 from bs4 import BeautifulSoup
 
-def get_ikon_news():
+def get_ikon_news(is_test=False):
+    if is_test:
+        # Системээ шалгахын тулд үргэлж 1 "Хуурамч" мэдээ буцаана
+        return [{
+            'source': 'Ikon',
+            'title': 'TEST: Системийн шалгалт амжилттай',
+            'url': 'https://ikon.mn/test-check'
+        }]
+    
     url = "https://ikon.mn/"
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)'}
 

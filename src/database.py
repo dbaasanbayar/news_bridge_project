@@ -24,7 +24,8 @@ def save_to_db(df, db_name="data/news_bridge.db"):
 def get_unprocessed_news(db_name="data/news_bridge.db"):
     with sqlite3.connect(db_name) as conn:
         # Анализ хийгдээгүй (Null) мэдээнүүдийг унших
-        return pd.read_sql_query("SELECT title, url FROM integrated_news WHERE sentiment IS NULL", conn)
+        query = "SELECT title, url FROM integrated_news WHERE sentiment IS NULL LIMIT 10"
+        return pd.read_sql_query(query, conn)
     
 def update_news_analysis(url, sentiment, category, db_name="data/news_bridge.db"):
     with sqlite3.connect(db_name) as conn:

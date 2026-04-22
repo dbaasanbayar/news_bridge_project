@@ -1,7 +1,15 @@
 import requests
 from bs4 import BeautifulSoup
 
-def get_montsame_news():
+def get_montsame_news(is_test=False):
+    if is_test:
+        # Системээ шалгахын тулд үргэлж 1 "Хуурамч" мэдээ буцаана
+        return [{
+            'source': 'Montsame',
+            'title': 'TEST: Системийн шалгалт амжилттай',
+            'url': 'https://montsame.mn/test-check'
+        }]
+
     url = "https://montsame.mn/mn/"
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)'}
     
