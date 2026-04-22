@@ -2,7 +2,6 @@ import pandas as pd
 import html
 import re
 
-
 def clean_integrated_data(df):
     print("\n--- Нэгдсэн датаг цэвэрлэж байна ---")
 
