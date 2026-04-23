@@ -10,7 +10,7 @@ def save_to_db(df, db_name="data/news_bridge.db"):
             df['sentiment'] = None
     if 'category' not in df.columns:
             df['category'] = None
-
+    
     with sqlite3.connect(db_name) as conn:
         df.to_sql('integrated_news', conn, if_exists='replace', index=False)
 
