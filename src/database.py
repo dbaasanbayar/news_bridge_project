@@ -18,7 +18,7 @@ def save_to_db(df, db_name="data/news_bridge.db"):
         conn.execute("CREATE INDEX IF NOT EXISTS idx_title ON integrated_news(title)")
         conn.execute("CREATE INDEX IF NOT EXISTS idx_news_url ON integrated_news(url)")
         conn.execute("CREATE INDEX IF NOT EXISTS idx_news_sentiment ON integrated_news(sentiment)")
-
+     
     print(f"Датаг индексжүүлж хадгаллаа.")
     
 def get_unprocessed_news(db_name="data/news_bridge.db"):
@@ -39,10 +39,10 @@ def update_news_analysis(url, sentiment, category, db_name="data/news_bridge.db"
 
 def export_news_by_source(db_name="data/news_bridge.db"):
     print("Датаг эх сурвалжаар нь салгаж CSV болгон гаргаж байна...")
-
+    
     with sqlite3.connect(db_name) as conn:
         df = pd.read_sql_query("SELECT * FROM integrated_news", conn)
-
+    
     # 'data/exports/' хавтас үүсгэх (Цэгцтэй байлгах үүднээс)
     export_path = "data/exports"
     os.makedirs(export_path, exist_ok=True)
