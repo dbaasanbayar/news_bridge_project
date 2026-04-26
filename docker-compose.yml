@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  news-app:
+    build: .
+    image: news-bridge-app:latest
+    container_name: news_bridge_container
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    restart: "no"
+
+    
