@@ -18,4 +18,3 @@ RUN mkdir -p data logs
 
 # 7. Програмыг ажиллуулах тушаал
 CMD ["python", "main.py"]
-
